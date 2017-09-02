@@ -1,0 +1,29 @@
+<!-- #133 everything-->
+<p id="notice"><%= notice %></p>
+
+<h1>Bookings</h1>
+
+<table>
+  <thead>
+
+  </thead>
+
+  <tbody>
+    <% @bookings.each do |booking| %>
+        Start date :<%= booking.start_date %><br>
+        End date :<%= booking.end_date %><br>
+        Guest number :<%= booking.guest_number %><br>
+        Room :<%= booking.room %><br>
+        User :<%= booking.user.email %><br><br>
+        <%= link_to 'Show', booking %> |
+        <%= link_to 'Edit', edit_booking_path(booking) %> |
+        <%= link_to 'Destroy', booking, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Booking', new_booking_path %> |
+<%= link_to 'New room', new_room_path %>
